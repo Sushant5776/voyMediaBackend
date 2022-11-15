@@ -1,26 +1,18 @@
-import { RequestBodyRegister } from '../../types/Register/interfaces'
+import { RequestBodyLogin } from '../../types/Login/interfaces'
 
-export function validInputRegister(user: RequestBodyRegister | undefined) {
+export function validInputLogin(user: RequestBodyLogin | undefined) {
 	if (!user) return false
 
-	if (!(user.email && user.username && user.password)) return false
+	if (!(user.email && user.password)) return false
 
 	try {
 		user.email = user.email.trim()
-		user.username = user.username.trim()
 		user.password = user.password.trim()
 	} catch (error) {
 		return false
 	}
 
-	if (
-		!(
-			user.email.length > 5 &&
-			user.username.length > 5 &&
-			user.password.length > 7
-		)
-	)
-		return false
+	if (!(user.email.length > 5 && user.password.length > 7)) return false
 
 	const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 	const passwordRegex =

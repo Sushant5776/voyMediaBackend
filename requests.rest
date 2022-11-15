@@ -17,6 +17,6 @@ POST http://localhost:8000/login
 Content-Type: application/json
 
 {
-	"username": "Sushant",
-	"password": "HareKrishnaHareRam"
+	"email": "garudkar.sa@gmail.com",
+	"password": "garudkarS@9988"
 }

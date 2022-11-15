@@ -1,5 +1,5 @@
 export interface RequestBodyRegister {
-	email: string | undefined
-	username: string | undefined
-	password: string | undefined
+	email?: string
+	username?: string
+	password?: string
 }
