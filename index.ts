@@ -165,10 +165,8 @@ app.post(
 			if (!tokenFromDB)
 				return res.status(400).json({ message: 'You are already logged out!' })
 
-			const logoutRes = await tokenFromDB.delete()
+			await tokenFromDB.delete()
 
-			if (!logoutRes)
-				return res.status(500).json({ message: 'Failed to log you out!' })
 			return res.status(200).redirect('/')
 		} catch (error) {
 			return res.status(500).json({ message: getErrorMessage(error) })
